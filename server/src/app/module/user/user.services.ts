@@ -23,16 +23,22 @@ export const createImage = async (data: imageCreate): Promise<void> => {
 export const createUser = async (data: User): Promise<User | null> => {
   //create user by prisma
 
+  const user = await prisma.user.findFirst({
+    where: {
+      email: data.email,
+    },
+  });
+
+  // if user not found
+  if (user) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User already exist');
+  }
+
   const userData = await prisma.user.create({
     data: {
       ...data,
     },
   });
-
-  // if user not found
-  if (!userData) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
-  }
 
   // create user by  mysql query
 
