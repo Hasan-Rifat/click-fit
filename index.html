@@ -8,25 +8,63 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <!-- Create this file for your additional styles -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container my-5">
       <header>
-        <h1>click fit</h1>
+        <h1>Click Fit</h1>
       </header>
+
       <main>
-        <!-- Content goes here -->
-        <div id="ajax-content"></div>
-        <div id="image-upload" class="drop-area">
-          Drag & Drop Images or Click to Upload
+        <div class="row">
+          <div class="col">
+            <div id="ajax-content" class="text-center"></div>
+
+            <!-- Replace the div with an img element for image preview -->
+            <img
+              id="image-preview"
+              class="drop-area w-100 mt-4"
+              src="https://placehold.co/400x400"
+              alt="Preview Image"
+              ondrop="handleDrop(event)"
+              ondragover="handleDragOver(event)"
+            />
+            <input type="file" id="imageUpload" style="display: none" />
+
+            <form
+              class="d-flex gap flex-column form__style"
+              id="userCreationForm"
+            >
+              <!-- Add your user input fields here (e.g., email, password, type, active) -->
+              <input type="email" name="email" placeholder="Email" required />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+              <input type="text" name="type" placeholder="Type" required />
+              <input
+                type="number"
+                name="active"
+                placeholder="Active"
+                required
+              />
+
+              <input
+                type="submit"
+                class="btn btn-primary"
+                value="Create User"
+              />
+            </form>
+          </div>
         </div>
       </main>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/app.js"></script>
-    <!-- Create this file for your additional scripts -->
   </body>
 </html>

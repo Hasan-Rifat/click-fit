@@ -22,4 +22,28 @@ main {
   padding: 20px;
   text-align: center;
   cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Add your other styles here */
+.form__style {
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form__style input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 25%;
+  margin: 0 auto;
 }
