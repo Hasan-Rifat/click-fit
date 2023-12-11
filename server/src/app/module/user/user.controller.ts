@@ -3,6 +3,7 @@ import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 import { userServices } from './user.services';
+import { imageCreate } from '../../../interfaces/common';
 
 const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
   const result = await userServices.getAllFromDB();
@@ -16,7 +17,7 @@ const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
 });
 
 const createImage = catchAsync(async (req: Request, res: Response) => {
-  const result = await userServices.createImage(req.body);
+  const result = await userServices.createImage(req.file as imageCreate);
 
   sendResponse(res, {
     success: true,
